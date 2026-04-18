@@ -2,6 +2,8 @@
 
 A minimalist, clean, and highly readable Hugo theme designed for personal blogs, book summaries, and technical writing.
 
+![Screenshot1.png](Screenshot1.png)
+
 ## Features
 
 ### 🎨 Design & UI

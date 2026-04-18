@@ -17,14 +17,28 @@ A minimalist, clean, and highly readable Hugo theme designed for personal blogs,
 - **Reading Time**: Automatically calculates and displays the estimated reading time for each post.
 - **SEO Optimized**: Pre-configured with Open Graph, Twitter Cards, and Canonical URLs.
 - **Back to Top**: A smart floating button that appears as you scroll.
+- **Conditional JS Loading**: External libraries (like Mermaid) are only loaded on pages that actually use them.
 
 ### 🧩 Shortcodes
-- **Notice/Callouts**: Beautiful styled boxes for `info` or `warning` messages.
-  ```markdown
-  {{< notice type="info" title="Pro Tip" >}}
-  Your content here...
-  {{< /notice >}}
-  ```
+
+#### Notices / Callouts
+Beautifully styled boxes for `info` or `warning` messages.
+```markdown
+{{< notice type="info" title="Pro Tip" >}}
+Your content here...
+{{< /notice >}}
+```
+
+#### Mermaid Diagrams
+Render flowcharts, sequence diagrams, and more using Mermaid.
+```markdown
+{{< mermaid >}}
+graph TD
+    A[Start] --> B{Working?}
+    B -- Yes --> C[Celebrate]
+    B -- No --> D[Debug]
+{{< /mermaid >}}
+```
 
 ## Installation
 

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section id="list">
+    <h1 style="margin-bottom: 2rem;">{{ .Title }}</h1>
+
+    <div class="content" style="margin-bottom: 4rem;">
+        {{ .Content }}
+    </div>
+
+    <ul class="post-list">
+        {{ range .Paginator.Pages }}
+        <li class="post-item">
+            {{ if not .Date.IsZero }}
+            <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+            {{ end }}
+            <h3 class="post-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+            {{ with .Summary }}
+            <div class="post-summary">{{ . | plainify | truncate 160 }}</div>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+
+    {{ template "_internal/pagination.html" . }}
+</section>
+{{ end }}

@@ -1,0 +1,33 @@
+<div class="footer-left">
+    &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+</div>
+<div class="footer-right">
+    {{ with .Site.Params.github }}
+    <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+    {{ end }}
+    {{ with .Site.Params.linkedin }}
+    <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+    {{ end }}
+    {{ with .Site.Params.medium }}
+    <a href="{{ . }}" target="_blank" rel="noopener">Medium</a>
+    {{ end }}
+    {{ with .Site.Params.substack }}
+    <a href="{{ . }}" target="_blank" rel="noopener">Substack</a>
+    {{ end }}
+    <a href="{{ "/index.xml" | relURL }}">RSS</a>
+</div>
+
+<a href="#" class="back-to-top" id="back-to-top" title="Back to Top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</a>
+
+<script>
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+</script>

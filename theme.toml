@@ -1,0 +1,12 @@
+name = "Hugo Simple Beauty"
+license = "MIT"
+licenselink = "https://github.com/prule/hugo-simple-beauty/blob/master/LICENSE"
+description = "A simple and beautiful Hugo theme"
+homepage = "https://github.com/prule/hugo-simple-beauty"
+tags = ["blog", "simple", "clean", "dark-mode"]
+features = ["blog", "syntax-highlighting", "related-posts", "dark-mode"]
+min_hugo_version = "0.110.0"
+
+[author]
+  name = "Paul Rule"
+  homepage = "https://github.com/prule"

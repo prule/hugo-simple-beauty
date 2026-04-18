@@ -1,0 +1,38 @@
+{{ define "main" }}
+<section id="home">
+    <div class="intro" style="margin-bottom: 5rem; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+        {{ with .Site.Params.sidebar_avatar }}
+        <div class="avatar-container">
+            <img src="{{ . | relURL }}" alt="Profile Avatar" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--header-bg);">
+        </div>
+        {{ end }}
+        <div class="intro-text">
+            <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 0.5rem;">Hey, I'm Paul.</h2>
+            {{ with .Site.Params.description }}
+            <p style="font-size: 1.25rem; color: var(--muted-color); max-width: 500px; line-height: 1.5;">{{ . }}</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+        <h3 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-color); margin: 0;">Recent Writing</h3>
+        <a href="/post/" style="font-size: 0.8rem; font-weight: 600; color: var(--accent-color);">View All &rarr;</a>
+    </div>
+
+    <div class="post-list">
+        {{ range first 5 .Site.RegularPages }}
+        <div class="post-item">
+            {{ if not .Date.IsZero }}
+            <time class="post-date">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ end }}
+            <div class="post-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+            {{ with .Summary }}
+            <div class="post-summary">{{ . | plainify | truncate 150 }}</div>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

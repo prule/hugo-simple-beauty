@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section id="not-found" style="text-align: center; padding: 4rem 0;">
+    <h1 style="font-size: 6rem; margin-bottom: 1rem; opacity: 0.1;">404</h1>
+    <h2 style="margin-bottom: 2rem;">Page Not Found</h2>
+    <p style="color: var(--muted-color); margin-bottom: 3rem; font-size: 1.2rem;">
+        The page you are looking for doesn't exist or has been moved.
+    </p>
+    <a href="{{ .Site.BaseURL | relURL }}" style="padding: 0.75rem 1.5rem; background: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
+        Back to Home
+    </a>
+</section>
+{{ end }}

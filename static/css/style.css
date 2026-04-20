@@ -28,6 +28,12 @@ html {
     --notice-info-border: #0ea5e9;
     --notice-warning-bg: #ffedd5;
     --notice-warning-border: #f97316;
+    --notice-tip-bg: #d1fae5; /* Green for Tip */
+    --notice-tip-border: #10b981;
+    --notice-note-bg: #dbeafe; /* Blue for Note */
+    --notice-note-border: #3b82f6;
+    --notice-important-bg: #fee2e2; /* Red for Important */
+    --notice-important-border: #ef4444;
 }
 
 /* Dark Mode Overrides */
@@ -50,6 +56,9 @@ html[data-theme='dark'] {
 
     --notice-info-bg: #082f49;
     --notice-warning-bg: #431407;
+    --notice-tip-bg: #064e3b;
+    --notice-note-bg: #1e3a8a;
+    --notice-important-bg: #7f1d1d;
 }
 
 /* Base Styles */
@@ -74,27 +83,27 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Header & Nav */
+/* Header - Magazine Layout */
 .site-header {
     background-color: var(--header-bg);
-    padding: 0.75rem 0;
-    margin-bottom: 2rem;
+    padding: 1.5rem 0 1rem 0;
+    margin-bottom: 2.5rem;
     transition: background-color 0.3s ease;
 }
 
 header nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    min-height: 2rem;
+    text-align: center;
+    gap: 1rem;
 }
 
 header h1 {
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 800;
     margin: 0;
-    line-height: 1;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -103,10 +112,18 @@ header h1 a {
     color: var(--header-text);
 }
 
-.nav-right {
+.nav-bottom {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 1rem;
+    position: relative;
+}
+
+html[data-theme="dark"] .nav-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 header ul {
@@ -114,21 +131,18 @@ header ul {
     padding: 0;
     margin: 0;
     display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-header ul li {
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 header ul li a {
     text-decoration: none;
     color: var(--header-link);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     transition: color 0.2s ease;
 }
 
@@ -136,8 +150,11 @@ header ul li a:hover {
     color: var(--accent-color);
 }
 
-/* Theme Toggle Button */
+/* Move theme toggle to the top right */
 .theme-toggle {
+    position: absolute;
+    right: 0;
+    top: -3rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -304,12 +321,20 @@ article header {
     margin: 2.5rem 0;
 }
 
-/* Notices / Callouts */
+/* Notices / Callouts (Custom Shortcode) */
 .notice {
     padding: 1.5rem;
     margin: 2rem 0;
     border-left: 4px solid;
     border-radius: 4px;
+}
+
+.notice-title {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
 }
 
 .notice.info {
@@ -322,12 +347,72 @@ article header {
     border-color: var(--notice-warning-border);
 }
 
-.notice-title {
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+/* AsciiDoc Admonitions */
+.admonitionblock {
+    margin: 2rem 0;
+}
+
+.admonitionblock td.icon .icon-note:before {
+    content: "\f05a"; /* FontAwesome info-circle */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--notice-note-border);
+}
+.admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb"; /* FontAwesome lightbulb */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--notice-tip-border);
+}
+.admonitionblock td.icon .icon-warning:before {
+    content: "\f071"; /* FontAwesome exclamation-triangle */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--notice-warning-border);
+}
+.admonitionblock td.icon .icon-important:before {
+    content: "\f06a"; /* FontAwesome exclamation-circle */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--notice-important-border);
+}
+
+.admonitionblock table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admonitionblock td.content {
+    padding: 1.5rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+    background-color: var(--notice-note-bg); /* Default to note background */
+}
+
+.admonitionblock.note td.content {
+    background-color: var(--notice-note-bg);
+    border-color: var(--notice-note-border);
+}
+.admonitionblock.tip td.content {
+    background-color: var(--notice-tip-bg);
+    border-color: var(--notice-tip-border);
+}
+.admonitionblock.warning td.content {
+    background-color: var(--notice-warning-bg);
+    border-color: var(--notice-warning-border);
+}
+.admonitionblock.important td.content {
+    background-color: var(--notice-important-bg);
+    border-color: var(--notice-important-border);
+}
+
+.admonitionblock td.icon {
+    vertical-align: top;
+    padding-right: 1rem;
+}
+
+.admonitionblock td.icon .title {
+    display: none; /* Hide default title */
 }
 
 /* Syntax Highlighting */
@@ -359,43 +444,6 @@ article header {
     color: var(--heading-color);
 }
 
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: var(--accent-color);
-    color: #ffffff !important; /* Force pure white for maximum contrast */
-    width: 44px; /* Slightly larger */
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top svg {
-    width: 24px;
-    height: 24px;
-    stroke: #ffffff; /* Explicitly white */
-}
-
-.back-to-top:hover {
-    transform: translateY(-4px);
-    background-color: var(--heading-color); /* Change color on hover to stand out more */
-}
-
 /* Pagination */
 .pagination {
     display: flex;
@@ -421,6 +469,43 @@ article header {
 .pagination li.active a, .pagination li a:hover {
     background: var(--accent-color);
     color: white;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    background-color: var(--heading-color);
 }
 
 /* Footer */

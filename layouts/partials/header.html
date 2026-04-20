@@ -2,7 +2,7 @@
     <div class="container">
         <nav>
             <h1><a href="{{ .Site.BaseURL | relURL }}">{{ .Site.Title }}</a></h1>
-            <div class="nav-right">
+            <div class="nav-bottom">
                 <ul>
                     {{ range .Site.Menus.main }}
                     <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section id="terms">
+    <h1 style="margin-bottom: 2rem;">{{ .Title }}</h1>
+
+    <div class="terms-list" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+        {{ range .Data.Terms.Alphabetical }}
+        <a href="{{ .Page.Permalink }}" class="term-item" style="padding: 0.5rem 1rem; background: var(--section-bg); border-radius: 4px; text-decoration: none; color: var(--text-color); font-weight: 500; transition: all 0.2s ease;">
+            {{ .Page.Title }} <span style="opacity: 0.5; font-size: 0.8rem; margin-left: 0.25rem;">({{ .Count }})</span>
+        </a>
+        {{ end }}
+    </div>
+</section>
+
+<style>
+    .term-item:hover {
+        background-color: var(--accent-color);
+        color: white !important;
+    }
+    .term-item:hover span {
+        color: white;
+        opacity: 1;
+    }
+</style>
+{{ end }}

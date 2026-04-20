@@ -2,6 +2,8 @@
 
 A minimalist, clean, and highly readable Hugo theme designed for personal blogs, book summaries, and technical writing.
 
+![Screenshot1.png](Screenshot1.png)
+
 ## Features
 
 ### 🎨 Design & UI
@@ -15,16 +17,30 @@ A minimalist, clean, and highly readable Hugo theme designed for personal blogs,
 - **Adaptive Syntax Highlighting**: Custom-themed code blocks that adjust colors for light and dark modes.
 - **Related Writing**: Built-in engine suggests related posts based on tags and categories.
 - **Reading Time**: Automatically calculates and displays the estimated reading time for each post.
-- **SEO Optimized**: Pre-configured with Open Graph, Twitter Cards, and Canonical URLs.
+- **SEO & Analytics**: Pre-configured with Google Analytics, Open Graph, Twitter Cards, and Canonical URLs.
 - **Back to Top**: A smart floating button that appears as you scroll.
+- **Conditional JS Loading**: External libraries (like Mermaid) are only loaded on pages that actually use them.
 
 ### 🧩 Shortcodes
-- **Notice/Callouts**: Beautiful styled boxes for `info` or `warning` messages.
-  ```markdown
-  {{< notice type="info" title="Pro Tip" >}}
-  Your content here...
-  {{< /notice >}}
-  ```
+
+#### Notices / Callouts
+Beautifully styled boxes for `info` or `warning` messages.
+```markdown
+{{< notice type="info" title="Pro Tip" >}}
+Your content here...
+{{< /notice >}}
+```
+
+#### Mermaid Diagrams
+Render flowcharts, sequence diagrams, and more using Mermaid.
+```markdown
+{{< mermaid >}}
+graph TD
+    A[Start] --> B{Working?}
+    B -- Yes --> C[Celebrate]
+    B -- No --> D[Debug]
+{{< /mermaid >}}
+```
 
 ## Installation
 
@@ -64,6 +80,13 @@ Add your profiles and profile picture under `[params]`:
     linkedin = "https://linkedin.com/in/..."
     medium = "https://medium.com/@..."
     substack = "https://your.substack.com"
+```
+
+### Google Analytics
+Add your GA4 Measurement ID in `hugo.toml`:
+```toml
+[services.googleAnalytics]
+    ID = 'G-XXXXXXXXXX'
 ```
 
 ### Syntax Highlighting

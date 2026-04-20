@@ -80,3 +80,13 @@ Ensure your highlighter is configured to use classes:
 
 ## License
 MIT
+
+## Screenshots
+
+![Light mode](ScreenShot-light.png "Light mode")
+
+![Dark mode](ScreenShot-dark.png "Dark mode")
+
+![Example markdown](ScreenShot-Markdown.png "Example markdown")
+
+![Example notice](ScreenShot-notice.png "Example notice")

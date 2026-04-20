@@ -2,8 +2,7 @@
 
 A minimalist, clean, and highly readable Hugo theme designed for personal blogs, book summaries, and technical writing.
 
-![Screenshot1.png](Screenshot1.png)
-
+![ScreenShot-light.webp](ScreenShot-light.webp)
 ## Features
 
 ### 🎨 Design & UI
@@ -106,10 +105,10 @@ MIT
 
 ## Screenshots
 
-![Light mode](ScreenShot-light.png "Light mode")
+![Light mode](ScreenShot-light.webp "Light mode")
 
-![Dark mode](ScreenShot-dark.png "Dark mode")
+![Dark mode](ScreenShot-dark.webp "Dark mode")
 
-![Example markdown](ScreenShot-Markdown.png "Example markdown")
+![Example markdown](ScreenShot-Markdown.webp "Example markdown")
 
-![Example notice](ScreenShot-notice.png "Example notice")
+![Example notice](ScreenShot-notice.webp "Example notice")

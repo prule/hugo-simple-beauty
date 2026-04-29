@@ -54,6 +54,40 @@ graph TD
 
 ## Configuration
 
+### Table of Contents (TOC)
+The theme supports an automatic, responsive Table of Contents for single posts, generated from your markdown headings (H2, H3 by default). On desktop, it appears as a sticky sidebar on the right; on mobile, it's displayed at the top of the content.
+
+To enable the TOC globally for all single posts, add the following to your `hugo.toml` under the `[params]` section:
+```toml
+[params]
+  showTableOfContents = true
+```
+
+You can override this setting for individual pages in their front matter:
+- To **disable** TOC for a specific page (even if globally enabled):
+  ```yaml
+  ---
+  title: "My Post"
+  showTableOfContents: false
+  ---
+  ```
+- To **enable** TOC for a specific page (even if globally disabled):
+  ```yaml
+  ---
+  title: "My Other Post"
+  showTableOfContents: true
+  ---
+  ```
+
+### Extension Partials
+The theme provides several "extension" partials that you can override in your project's `layouts/partials/` directory. This allows you to inject custom HTML, CSS, or JavaScript without modifying the theme's core files, making theme updates easier.
+
+To use them, simply create a file with the corresponding name in your project's `layouts/partials/` directory (e.g., `layouts/partials/head-extend.html`). Hugo will automatically use your version instead of the empty one provided by the theme.
+
+- **`head-extend.html`**: Injected just before the closing `</head>` tag. Ideal for custom CSS `<style>` blocks, `<link>` tags for external stylesheets, or `<script>` tags for JavaScript that needs to run early.
+- **`footer-extend.html`**: Injected just before the closing `</footer>` tag. Useful for adding extra content to the footer area.
+- **`body-before-close.html`**: Injected just before the closing `</body>` tag. Perfect for JavaScript that should run after the DOM is loaded, such as analytics scripts or custom interactive elements.
+
 ### Main Menu
 Configure your navigation in `hugo.toml`:
 ```toml

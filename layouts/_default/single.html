@@ -16,9 +16,30 @@
             {{ end }}
         </div>
     </header>
-    <div class="content">
-        {{ .Content }}
-    </div>
+
+    {{ $showTOC := false }}
+    {{ if .Site.Params.showTableOfContents }}
+        {{ $showTOC = true }}
+    {{ end }}
+    {{ if isset .Params "showTableOfContents" }}
+        {{ $showTOC = .Params.showTableOfContents }}
+    {{ end }}
+
+    {{ if and $showTOC .TableOfContents }}
+        <div class="single-post-layout">
+            <aside class="post-toc">
+                <h2>Table of Contents</h2>
+                {{ .TableOfContents }}
+            </aside>
+            <div class="content">
+                {{ .Content }}
+            </div>
+        </div>
+    {{ else }}
+        <div class="content">
+            {{ .Content }}
+        </div>
+    {{ end }}
 
     {{ partial "related.html" . }}
 </article>

@@ -471,10 +471,89 @@ article header {
     color: white;
 }
 
-/* Back to Top Button */
+/* Table of Contents */
+.post-toc {
+    background-color: var(--section-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.post-toc h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--heading-color);
+}
+
+.post-toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.post-toc ul ul {
+    padding-left: 1rem;
+}
+
+.post-toc li {
+    margin-bottom: 0.5rem;
+}
+
+.post-toc a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-toc a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Single Post Layout with Sidebar TOC */
+.single-post-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+    body.single-post .container {
+        max-width: 1100px;
+    }
+
+    .single-post-layout {
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4rem;
+    }
+
+    .single-post-layout .content {
+        flex: 0 1 var(--max-width);
+        width: var(--max-width);
+    }
+
+    .post-toc {
+        position: sticky;
+        top: 4rem;
+        width: 280px;
+        flex: 0 0 280px;
+        margin-bottom: 0;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
+}
+
+/* Back to Top Button - Vertically Centered */
 .back-to-top {
     position: fixed;
-    bottom: 2rem;
+    top: 50%;
     right: 2rem;
     background-color: var(--accent-color);
     color: #ffffff !important;
@@ -490,6 +569,7 @@ article header {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 1000;
+    transform: translateY(-50%);
 }
 
 .back-to-top.visible {
@@ -504,7 +584,7 @@ article header {
 }
 
 .back-to-top:hover {
-    transform: translateY(-4px);
+    transform: translateY(-50%) translateY(-4px);
     background-color: var(--heading-color);
 }
 
@@ -554,5 +634,13 @@ article header {
         gap: 1.5rem;
         text-align: center;
     }
-    .back-to-top { right: 1.5rem; bottom: 1.5rem; }
+    .back-to-top {
+        top: 50%;
+        bottom: auto;
+        right: 1.5rem;
+        transform: translateY(-50%);
+    }
+    .back-to-top:hover {
+        transform: translateY(-50%) translateY(-4px);
+    }
 }

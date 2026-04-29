@@ -2,6 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
 <head>
     {{ partial "head.html" . }}
+    {{ partial "head-extend.html" . }}
 </head>
 <body>
     <header class="site-header">
@@ -19,7 +20,9 @@
     <footer class="site-footer">
         <div class="container">
             {{ partial "footer.html" . }}
+            {{ partial "footer-extend.html" . }}
         </div>
     </footer>
+    {{ partial "body-before-close.html" . }}
 </body>
 </html>

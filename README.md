@@ -41,6 +41,15 @@ graph TD
 {{< /mermaid >}}
 ```
 
+#### Center Text
+Center any text or Markdown content.
+```markdown
+{{< center >}}
+This text will be centered.
+**You can even use Markdown inside!**
+{{< /center >}}
+```
+
 ## Installation
 
 1. From the root of your Hugo site, add the theme as a git submodule:
@@ -121,6 +130,20 @@ Add your GA4 Measurement ID in `hugo.toml`:
 [services.googleAnalytics]
     ID = 'G-XXXXXXXXXX'
 ```
+
+### SEO & Social Sharing
+The theme is optimized for search engines and social media platforms out of the box.
+
+- **JSON-LD Structured Data**: Automatically generates `WebSite` (home) and `BlogPosting` (posts) schema to help search engines understand your content and enable rich results.
+- **Open Graph & Twitter Cards**: 
+    - Uses the `image` field in your post's front matter for sharing previews.
+    - Falls back to `params.sidebar_avatar` if no post image is defined.
+    - Automatically switches to `summary_large_image` when a post image is present.
+- **Twitter Handle**: Add your Twitter handle (without the `@`) to `hugo.toml` to enable the `twitter:creator` tag:
+  ```toml
+  [params]
+    twitter = "your_handle"
+  ```
 
 ### Syntax Highlighting
 Ensure your highlighter is configured to use classes:

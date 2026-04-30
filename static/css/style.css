@@ -415,7 +415,11 @@ article header {
     display: none; /* Hide default title */
 }
 
-/* Syntax Highlighting */
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
 .content pre {
     background: var(--section-bg);
     color: var(--code-name);

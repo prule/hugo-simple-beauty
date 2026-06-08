@@ -18,6 +18,7 @@ A minimalist, clean, and highly readable Hugo theme designed for personal blogs,
 - **Reading Time**: Automatically calculates and displays the estimated reading time for each post.
 - **SEO & Analytics**: Pre-configured with Google Analytics, Open Graph, Twitter Cards, and Canonical URLs.
 - **Back to Top**: A smart floating button that appears as you scroll.
+- **Ko-fi Support**: Renders an elegant "Support on Ko-fi" call-to-action block at the end of each post, plus a matching footer link when your Ko-fi ID is configured.
 - **Conditional JS Loading**: External libraries (like Mermaid) are only loaded on pages that actually use them.
 
 ### 🧩 Shortcodes
@@ -122,6 +123,7 @@ Add your profiles and profile picture under `[params]`:
     linkedin = "https://linkedin.com/in/..."
     medium = "https://medium.com/@..."
     substack = "https://your.substack.com"
+    kofi = "your_kofi_username"  # Renders an elegant support card on posts and a footer link
 ```
 
 ### Google Analytics

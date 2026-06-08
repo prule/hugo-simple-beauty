@@ -14,6 +14,9 @@
     {{ with .Site.Params.substack }}
     <a href="{{ . }}" target="_blank" rel="noopener">Substack</a>
     {{ end }}
+    {{ with .Site.Params.kofi }}
+    <a href="https://ko-fi.com/{{ . }}" target="_blank" rel="noopener">Ko-fi</a>
+    {{ end }}
     <a href="{{ "/index.xml" | relURL }}">RSS</a>
 </div>
 

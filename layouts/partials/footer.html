@@ -17,6 +17,9 @@
     {{ with .Site.Params.kofi }}
     <a href="https://ko-fi.com/{{ . }}" target="_blank" rel="noopener">Ko-fi</a>
     {{ end }}
+    {{ with .Site.Params.portfolio }}
+    <a href="{{ . }}" target="_blank" rel="noopener">Portfolio</a>
+    {{ end }}
     <a href="{{ "/index.xml" | relURL }}">RSS</a>
 </div>
 

@@ -176,6 +176,21 @@ html[data-theme='dark'] .theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Burger (mobile only) */
+.nav-burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--header-link);
+    padding: 0.4rem;
+    align-items: center;
+    justify-content: center;
+}
+.nav-burger .close-icon { display: none; }
+.nav-bottom.menu-open .nav-burger .burger-icon { display: none; }
+.nav-bottom.menu-open .nav-burger .close-icon { display: block; }
+
 /* Icons */
 .sun-icon, .moon-icon { width: 18px; height: 18px; }
 .sun-icon { display: none; }
@@ -628,13 +643,46 @@ article header {
 @media (max-width: 768px) {
     .container { padding: 0 1rem; }
     .site-header { padding: 1rem 0 0.75rem 0; margin-bottom: 1.75rem; }
-    header nav { gap: 0.75rem; }            /* keep column layout */
+    /* one line: title left, toggle + burger right */
+    header nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        position: relative;
+    }
     header h1 { font-size: 1rem; }
-    header ul { gap: 0.75rem 1.25rem; }     /* row/col gap, wraps */
-    header ul li a { font-size: 0.75rem; }
-    /* toggle inline below menu, not floating over title */
-    .nav-bottom { flex-direction: column; padding-top: 0.75rem; }
-    .theme-toggle { position: static; margin-top: 0.5rem; }
+    .nav-burger { display: flex; }
+    .nav-bottom {
+        position: static;       /* let ul anchor to full-width nav */
+        width: auto;
+        border-top: none;
+        padding-top: 0;
+        gap: 0.25rem;
+    }
+    .theme-toggle { position: static; }
+    /* menu drops as full-width overlay below the bar */
+    header ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 0.75rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background-color: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        z-index: 50;
+    }
+    .nav-bottom.menu-open ul { display: flex; }
+    header ul li { width: 100%; text-align: center; border-bottom: 1px solid var(--border-color); }
+    header ul li a {
+        display: block;
+        padding: 0.85rem 0;
+        font-size: 0.9rem;
+    }
     h1 { font-size: 1.8rem; }
     .intro { flex-direction: column; text-align: center; gap: 1.5rem; }
     .intro h2 { font-size: 2.2rem; }

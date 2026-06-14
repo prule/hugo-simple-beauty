@@ -699,7 +699,7 @@ article header {
     }
     .back-to-top {
         top: auto;
-        bottom: 1.5rem;
+        bottom: 4.75rem;        /* clear the fixed promo bar (~51px) */
         right: 1.5rem;
         transform: none;
     }
